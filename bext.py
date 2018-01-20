@@ -19,7 +19,7 @@ class MainFrame(Frame):
 
         self.openbutton = Button(self, text="Open World", command=self.load_file, width=10)
         self.openbutton.grid(row=0, column=0)
-        self.savebutton = Button(self, text="Save World", command=self.save_file, width=10)
+        self.savebutton = Button(self, text="Save World", command=self.save_file, width=10, state=DISABLED)
         self.savebutton.grid(row=0, column=1)
 
         self.label = Label(self, text="Boards (labels)")
@@ -53,6 +53,7 @@ class MainFrame(Frame):
                 name = ", ".join(labels)
             self.boardlist.insert(END, name)
         self.importbutton['state'] = NORMAL
+        self.savebutton['state'] = NORMAL
 
     def add_board(self, board):
         data = self.data
